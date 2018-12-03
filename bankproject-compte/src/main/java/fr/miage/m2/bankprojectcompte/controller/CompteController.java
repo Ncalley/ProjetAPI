@@ -66,7 +66,7 @@ public class CompteController {
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
-	@GetMapping("cartes")
+	@GetMapping("{id}/cartes")
 	public ResponseEntity<?> getAllCartes(@PathVariable("compteId") String id){
 		String URI = config.getUrl()+":"+config.getPort()+"/cartes/ofCompte/"+id;
 		ResponseEntity<?> response = restTemplate.getForEntity(URI, Object.class);
@@ -74,7 +74,7 @@ public class CompteController {
 		return response;
 	}
 	
-	@GetMapping("operations")
+	@GetMapping("{id}/operations")
 	public ResponseEntity<?> getAllOperations(@PathVariable("compteId") String id){
 		String URI = config.getUrl()+":"+config.getPort()+"/operations/ofCompte/"+id;
 		ResponseEntity<?> response = restTemplate.getForEntity(URI, Object.class);
@@ -82,7 +82,7 @@ public class CompteController {
 		return response;
 	}
 	
-	@GetMapping("transferts")
+	@GetMapping("{id}/transferts")
 	public ResponseEntity<?> getAllTransferts(@PathVariable("compteId") String id){
 		String URI = config.getUrl()+":"+config.getPort()+"/transferts/ofCompte/"+id;
 		ResponseEntity<?> response = restTemplate.getForEntity(URI, Object.class);
